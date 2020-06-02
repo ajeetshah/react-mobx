@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { decorate, observable, action, computed } from "mobx";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Form from "./Form";
+import Dashboard from "./Dashboard";
+import Reviews from "./Reviews";
+import Store from "./store";
+
+// decorate(Store, {
+//   reviewList: observable,
+//   addReview: action,
+//   // averageScore: computed,
+//   // reviewCount: computed,
+//   foo: observable,
+//   addFoo: action,
+// });
+
+const reviewStore = new Store();
+
+class App extends Component<any, any> {
+  render() {
+    return (
+      <div className="container">
+        <Form store={reviewStore} />
+        {/* <Dashboard /> */}
+        <Dashboard auth={reviewStore} />
+        {/* <Reviews store={reviewStore} /> */}
+      </div>
+    );
+  }
 }
 
 export default App;
