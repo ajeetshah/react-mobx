@@ -18,7 +18,12 @@ class Dashboard extends React.Component<any, any> {
   }
 
   render() {
-    return <div>{this.props.auth.user.role}</div>;
+    return (
+      <>
+        <div>{this.props.auth.user.role}</div>
+        <div>check console logs</div>
+      </>
+    );
   }
 }
 
