@@ -14,7 +14,7 @@ class Dashboard extends React.Component<any, any> {
   }
 
   componentDidUpdate() {
-    console.debug("componentDidUpdate", this.props.auth.user.role);
+    console.debug("componentDidUpdate", this.props.auth.user.role); // WITHOUT toJS
   }
 
   render() {
